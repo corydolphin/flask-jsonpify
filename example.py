@@ -9,7 +9,7 @@ specified as request's arguments.
 :license:   MIT/X11, see LICENSE for more details.
 """
 from flask import Flask
-from flask.ext.jsonpify import jsonify
+from flask.ext.jsonpify import jsonify 
 
 app = Flask(__name__)
 SECRET_KEY = "yeah, not actually a secret"

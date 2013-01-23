@@ -2,13 +2,13 @@ from setuptools import setup
 
 
 setup(
-    name='Flask-Jsonify',
+    name='Flask-Jsonpify',
     version='1.0',
     url='https://github.com/wcdolphin/flask-jsonpify',
     license='MIT',
     author='Cory Dolphin',
     author_email='wcdolphin@gmail.com',
-    description="A simple Flask extension extending Flask\'s core jsonify"
+    description="A simple Flask extension extending Flask's core jsonify"
     " functionality to support JSON-Padded responses, using the callback specified in the querystring",
     long_description=__doc__,
     py_modules=['flask_jsonpify'],
