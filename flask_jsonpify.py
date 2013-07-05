@@ -10,13 +10,22 @@ def __pad(strdata):
     else:
         return strdata
 
+def __dumps(*args, **kwargs):
+    """ Serializes `args` and `kwargs` as JSON. Supports serializing an array
+    as the top-level object, if it is the only argument.
+    """
+    indent = None
+    if current_app.config.get('JSONIFY_PRETTYPRINT_REGULAR', False) \
+        and not request.is_xhr:
+        indent = 2
+    return json.dumps(args[0] if len(args) is 1 else dict(*args, **kwargs), indent=indent)
 
 def jsonpify(*args, **kwargs):
     """Creates a :class:`~flask.Response` with the JSON or JSON-P representation of
     the given arguments with an `application/json` mimetype.  The arguments
-    to this function are the same as to the :class:`dict` constructor. If a
-    `callback` is specified in the request arguments, the response is
-    JSON-Padded.
+    to this function are the same as to the :class:`dict` constructor, but also
+    accept an array. If a `callback` is specified in the request arguments, the
+    response is JSON-Padded.
 
     Example usage::
 
@@ -54,8 +63,9 @@ def jsonpify(*args, **kwargs):
     .. versionadded:: 0.2
     """
 
-    return current_app.response_class(__pad(json.dumps(dict(*args, **kwargs),
-        indent=None if request.is_xhr else 2)),
+
+    return current_app.response_class(__pad(__dumps(*args, **kwargs)),
         mimetype='application/json')
+
 
 jsonify = jsonpify  # allow override of Flask's jsonify.

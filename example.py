@@ -9,17 +9,24 @@ specified as request's arguments.
 :license:   MIT/X11, see LICENSE for more details.
 """
 from flask import Flask
-from flask.ext.jsonpify import jsonify 
+
+try:
+  import flask_jsonpify.jsonify
+except:
+  from flask.ext.jsonpify import jsonify
 
 app = Flask(__name__)
 SECRET_KEY = "yeah, not actually a secret"
 app.config.from_object(__name__)
 
 
-@app.route("/")
-def index():
-    return jsonify(user="lala")
+@app.route("/user/<user_id>")
+def show_user(user_id):
+    return jsonify(user={"name":"johnny droptables", "id":user_id})
 
+@app.route("/users")
+def list_users():
+    return jsonify([{"name":"johnny droptables-%i"%i, "id":i} for i in range(10)])
 
 if __name__ == "__main__":
     app.run(debug=True)
