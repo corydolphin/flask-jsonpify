@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='Flask-Jsonpify',
-    version='1.1',
+    version='1.3',
     url='https://github.com/wcdolphin/flask-jsonpify',
     license='MIT',
     author='Cory Dolphin',
