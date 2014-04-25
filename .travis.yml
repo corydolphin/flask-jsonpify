@@ -1,0 +1,19 @@
+language: python
+python:
+  - "2.6"
+  - "2.7"
+  - "3.3"
+  - "pypy"
+
+install:
+  - "pip install flask flask-testing" 
+  - "pip install pep8 coveralls nose"
+
+script:
+  - "nosetests --with-coverage --cover-package=flask_jsonpify"
+  - "python setup.py build install"
+  - "nosetests"
+
+after_success:
+  - "pep8 flask_jsonpify.py"
+  - "coveralls"
