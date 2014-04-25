@@ -16,9 +16,10 @@ except:
   from flask.ext.jsonpify import jsonify
 
 app = Flask(__name__)
-SECRET_KEY = "yeah, not actually a secret"
-app.config.from_object(__name__)
 
+@app.route("/")
+def index():
+    return jsonify(foo='bar')
 
 @app.route("/user/<user_id>")
 def show_user(user_id):

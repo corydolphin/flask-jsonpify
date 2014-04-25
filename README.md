@@ -34,9 +34,6 @@ from flask import Flask
 from flask.ext.jsonpify import jsonify
 
 app = Flask(__name__)
-SECRET_KEY = "not actually a secret"
-app.config.from_object(__name__)
-
 
 @app.route("/")
 def index():
