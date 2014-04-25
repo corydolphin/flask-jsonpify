@@ -76,7 +76,7 @@ class ContentTypeTestCase(FlaskJsonifyTestCase):
         for url in ['/','/list_test','/list_test_dict']:
             resp = self.client.get("%s?callback=example" % url)
             self.assertEqual(resp.headers[ContentType], u'application/javascript')
-            self.assertIn("example(", resp.data.decode("utf-8"))
+            self.assertEqual("example(" in resp.data.decode("utf-8"), True)
 
 
 if __name__ == "__main__":
