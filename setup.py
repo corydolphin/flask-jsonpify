@@ -21,7 +21,8 @@ setup(
     install_requires=[
         'Flask'
     ],
-    test_requires=['Flask-Testing'],
+    tests_require=['Flask-Testing', 'nose'],
+    test_suite = 'nose.collector',
     classifiers=[
         'Environment :: Web Environment',
         'Intended Audience :: Developers',

@@ -6,14 +6,11 @@ python:
   - "pypy"
 
 install:
-  - "pip install flask flask-testing" 
-  - "pip install pep8 coveralls nose"
+  - "pip install pep8 pyflakes coveralls"
 
 script:
-  - "nosetests --with-coverage --cover-package=flask_jsonpify"
-  - "python setup.py build install"
-  - "nosetests"
+  - "python setup.py test"
+  - "pep8 flask_jsonpify.py"
 
 after_success:
-  - "pep8 flask_jsonpify.py"
   - "coveralls"

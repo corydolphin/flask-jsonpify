@@ -19,8 +19,6 @@ except:
 
 from flask import Flask
 from flask.ext.testing import TestCase
-import json
-import re
 
 ContentType = 'Content-Type'
 
@@ -59,7 +57,7 @@ class SerializationTestCase(FlaskJsonifyTestCase):
         resp = self.client.get('/list_test_dict')
         self.assertEqual(resp.json, test_list_dicts)
 
-    def test_list_dicts(self):
+    def test_dict(self):
         resp = self.client.get('/')
         self.assertEqual(resp.json, test_dict)
 
