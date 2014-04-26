@@ -19,8 +19,6 @@ except:
 
 from flask import Flask
 from flask.ext.testing import TestCase
-import json
-import re
 
 ContentType = 'Content-Type'
 
@@ -59,7 +57,7 @@ class SerializationTestCase(FlaskJsonifyTestCase):
         resp = self.client.get('/list_test_dict')
         self.assertEqual(resp.json, test_list_dicts)
 
-    def test_list_dicts(self):
+    def test_dict(self):
         resp = self.client.get('/')
         self.assertEqual(resp.json, test_dict)
 
@@ -76,7 +74,7 @@ class ContentTypeTestCase(FlaskJsonifyTestCase):
         for url in ['/','/list_test','/list_test_dict']:
             resp = self.client.get("%s?callback=example" % url)
             self.assertEqual(resp.headers[ContentType], u'application/javascript')
-            self.assertIn("example(", resp.data.decode("utf-8"))
+            self.assertEqual("example(" in resp.data.decode("utf-8"), True)
 
 
 if __name__ == "__main__":
