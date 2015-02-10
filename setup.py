@@ -3,14 +3,13 @@ from setuptools import setup
 
 setup(
     name='Flask-Jsonpify',
-    version='1.4.0',
-    url='https://github.com/wcdolphin/flask-jsonpify',
+    version='1.5.0',
+    url='https://github.com/corydolphin/flask-jsonpify',
     license='MIT',
     author='Cory Dolphin',
-    author_email='wcdolphin@gmail.com',
-    description="A simple Flask extension extending Flask's core jsonify"
-    " functionality to support JSON-Padded responses, using the callback specified in the querystring",
-    long_description=__doc__,
+    author_email='corydolph.in@gmail.com',
+    description="A Flask extension adding a decorator for JSONP support",
+    long_description=open('README.rst').read(),
     py_modules=['flask_jsonpify'],
     # if you would be using a package instead use packages instead
     # of py_modules:
@@ -22,7 +21,7 @@ setup(
         'Flask'
     ],
     tests_require=['Flask-Testing', 'nose'],
-    test_suite = 'nose.collector',
+    test_suite='nose.collector',
     classifiers=[
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
