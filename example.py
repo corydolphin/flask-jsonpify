@@ -11,9 +11,9 @@ specified as request's arguments.
 from flask import Flask
 
 try:
-  import flask_jsonpify.jsonify
+    import flask_jsonpify.jsonify
 except:
-  from flask.ext.jsonpify import jsonify
+    from flask.ext.jsonpify import jsonify
 
 app = Flask(__name__)
 
