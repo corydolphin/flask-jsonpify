@@ -1,28 +1,23 @@
 language: python
 python:
-  - "2.6"
-  - "2.7"
-  - "3.3"
-  - "pypy"
-
+- '2.6'
+- '2.7'
+- '3.3'
+- pypy
 install:
-  - "pip install pep8 pyflakes coveralls"
-
+- pip install pep8 pyflakes coveralls
 script:
-  - "python setup.py test"
-  - "pep8 flask_jsonpify.py"
-
+- python setup.py test
+- pep8 flask_jsonpify.py
 after_success:
-  - "coveralls"
-
+- coveralls
 deploy:
   provider: pypi
-  user: wcdolphin
+  user: CoryDolphin
   password:
-    secure: PrKEfSZX/IBwy/1TtocCDVNE9inepYeCoChFQ7MXxC49ytbEjLL8xcv57MSnFgOtMuVxzikjkrplBlDe0+gNtTW8vQQWMg6n2I/rkgI8tIJ+RAwWMBvVDNjtdziBkVlkcfOFHYZ6NHZ1SH/FQ1GCicQF8LSsBnMLJZOJ+RVjs5Q=
+    secure: cKrYuSQMjFK0MUrXMk1AU1VlbzUoNTCBacMIRzYYfIYhfHjZu9sN82CB/ffyV8ys7+eN81E4QCLAJ6e9/8TbE1Yh6xcdoaseu0sPpUOvQhnFwxk/d0xfdu920gdy3ZKTc767PrB/sfZ87B+/iD8yME3eFyvJYuOxSGhDGKyTAfU=
   distributions: "sdist bdist_wheel"
   on:
-    all_branches: true
     tags: true
-    repo: CoryDolphin/flask-jsonpify
+    repo: corydolphin/flask-jsonpify
     condition: $TRAVIS_PYTHON_VERSION != *2.6* # Ensures we release a 2.7X wheel
