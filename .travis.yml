@@ -24,5 +24,5 @@ deploy:
   on:
     all_branches: true
     tags: true
-    repo: corydolphin/flask-jsonpify
+    repo: CoryDolphin/flask-jsonpify
     condition: $TRAVIS_PYTHON_VERSION != *2.6* # Ensures we release a 2.7X wheel
