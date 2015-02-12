@@ -4,7 +4,7 @@ from setuptools import setup
 setup(
     name='Flask-Jsonpify',
     version='1.5.0',
-    url='https://github.com/corydolphin/flask-jsonpify',
+    url='https://github.com/CoryDolphin/flask-jsonpify',
     license='MIT',
     author='Cory Dolphin',
     author_email='corydolph.in@gmail.com',
