@@ -1,0 +1,2 @@
+include flask_jsonpify.py *.rst
+global-exclude *.pyc

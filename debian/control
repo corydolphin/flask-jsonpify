@@ -3,20 +3,24 @@ Section: python
 Priority: optional
 Maintainer: Debian Python Modules Team <python-modules-team@lists.alioth.debian.org>
 Uploaders: Vasudev Kamath <kamathvasudev@gmail.com>,
+ Adam Roses Wight <adamw@ludd.net>
 Build-Depends: debhelper (>= 9~),
- python,
- python-setuptools,
- python-flask
+ dh-python,
+ python-all, python3-all,
+ python-setuptools, python3-setuptools,
+ python-flask, python3-flask
 Standards-Version: 3.9.5
 Homepage: https://github.com/wcdolphin/flask-jsonpify
 Vcs-Svn: svn://anonscm.debian.org/python-modules/packages/python-jsonpify/trunk/
 Vcs-Browser: http://anonscm.debian.org/viewvc/python-modules/packages/python-jsonpify/trunk/
 X-Python-Version: >= 2.6
+X-Python3-Version: >= 3.2
 
 Package: python-jsonpify
 Architecture: all
 Depends: ${python:Depends},
- ${misc:Depends}
+ ${misc:Depends},
+ python-flask
 Description: extension to Flask's core jsonify function
  This package provides extension to Flask's core jsonify function,
  returning JSON padded response when a callback is specified as
@@ -24,3 +28,20 @@ Description: extension to Flask's core jsonify function
  .
  Its usage and implementation is same as flask.jsonify differing only
  when request has a callback specified.
+ .
+ This provides the python2 bindings.
+
+Package: python3-jsonpify
+Architecture: all
+Depends: ${python3:Depends},
+ ${misc:Depends},
+ python3-flask
+Description: extension to Flask's core jsonify function
+ This package provides extension to Flask's core jsonify function,
+ returning JSON padded response when a callback is specified as
+ request's argument.
+ .
+ Its usage and implementation is same as flask.jsonify differing only
+ when request has a callback specified.
+ .
+ This provides the python3 bindings.

@@ -1,25 +1,11 @@
 #!/usr/bin/make -f
 
-# Supported Python versions
-PYVERS = $(shell pyversions -r)
-PY2_PACKAGE_NAME = python-jsonpify
+#export DH_VERBOSE = 1
+export PYBUILD_NAME=jsonpify
 
 %:
-	dh $@ --with=python2
+	dh $@ --with python2,python3 --buildsystem pybuild
 
-override_dh_auto_build:
-	set -xe; \
-	for py in $(PYVERS); do \
-		$$py setup.py build; \
-	done
-
-
-overide_dh_auto_install:
-	set -xe; \
-	for py in $(PYVERS); do \
-		$$py setup.py install --skip-build \
-			--root debian/$(PY2_PACKAGE_NAME)\
-			--install-layout deb;\
-	done
-	# Remove me when dh_python2 can handle this file
-	rm -vf debian/*/usr/lib/python*/*-packages/*.egg-info/SOURCES.txt
+override_dh_auto_test:
+	# Skip tests.
+	# FIXME: Do we need to package Flask-Testing?
