@@ -1,0 +1,13 @@
+python-jsonpify (1.5.0-1) unstable; urgency=medium
+
+  * Add Debian packaging support for python3.
+
+ -- Adam Roses Wight <adamw@ludd.net>  Tue, 04 Aug 2015 22:32:12 -0700
+
+python-jsonpify (1.3-1) unstable; urgency=medium
+
+  * Initial release.
+    Closes: bug#740272.
+
+ -- Vasudev Kamath <kamathvasudev@gmail.com>  Thu, 27 Feb 2014 23:09:01 +0530
+
