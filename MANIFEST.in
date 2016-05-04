@@ -1,2 +1,2 @@
-include flask_jsonpify.py *.rst
+include flask_jsonpify.py *.rst test.py
 global-exclude *.pyc
