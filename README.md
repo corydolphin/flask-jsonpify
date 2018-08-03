@@ -24,7 +24,7 @@ The best way to use Flask-Jsonpify is to completely replace Flask's jsonify with
 
 ```Python
 from flask import Flask
-from flask.ext.jsonpify import jsonify
+from flask_jsonpify import jsonify
 
 app = Flask(__name__)
 
